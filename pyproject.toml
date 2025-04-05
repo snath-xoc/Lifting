@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "Lifting"
 version = "2025.0.0"
-description = "Auditing tool for sample weight equivalence for non-deterministic estimators"
+description = "Wavelet based lifting scheme to compress irregular images over multi-dimensional data"
 readme = "README.md"
 maintainers = [{name = "Shruti Nath", email = "shruti@probabl.ai"}]
 dependencies = ["numpy>=1.15","regionmask"]
