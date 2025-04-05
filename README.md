@@ -13,7 +13,7 @@ The lifting scheme is ana adaption of wavelet-based image compression to irregul
 1. **Split**: split the grid into pairs of 2 (and in case of an odd number of grid cells one triplet will exist).
 2. **Predict**: Assign x-y values to each pair/triple and then store the differences of x-y as the *wavelet coefficients*
 3. **Update**: update each pair/triple group's values with that of their mean.
-![Slide1](https://hackmd.io/_uploads/Hys49ly0Jx.png)
+![Slide1]([(https://github.com/snath-xoc/Lifting/blob/master/images/Slide1.png])
 
 ## Example usage
 
@@ -21,11 +21,11 @@ Our adaption of this for spatio-temporal frameworks means that we can compress i
 
 For example one can compress the image of India as shown below for a single time step
 
-![UKESM1-0-LL_SAS_0_July_GIF_lift](https://hackmd.io/_uploads/HJR82ekA1g.png)
+![UKESM1-0-LL_SAS_0_July_GIF_lift]([https://github.com/snath-xoc/Lifting/blob/master/images/lifting_SAS_slow.gif])
 
 And again for the Mediterranean
 
-![UKESM1-0-LL_MED_0_July_GIF_lift](https://hackmd.io/_uploads/Bygt3gkAyl.png)
+![UKESM1-0-LL_MED_0_July_GIF_lift]([https://github.com/snath-xoc/Lifting/blob/master/images/lifting_MED_slow.gif])
 
 ## Use cases
 
