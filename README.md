@@ -7,6 +7,11 @@ Lifting scheme
 ![PRs](https://img.shields.io/badge/regionmask-violet
 )
 
+## Installation
+pip install -i https://test.pypi.org/simple/ Lifting
+
+See here: https://test.pypi.org/project/Lifting/
+
 ## Workflow
 
 The lifting scheme is ana adaption of wavelet-based image compression to irregularly-shaped (i.e., non-square or -rectangular) grids. For a given input grid it iteratively performs 3 steps till the grid is compressed to a single value called the *scaling coefficient*. The three steps are:
