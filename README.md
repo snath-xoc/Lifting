@@ -22,7 +22,7 @@ The lifting scheme is an adaptation of wavelet-based image compression to irregu
 
 ## Example usage
 
-Our adaption of this for spatio-temporal frameworks means that we can compress irregular images into a single value across many different time-steps/samples. In modelling complex phenomena such as weather and climate, this allows one to extract a regional signal from which to model large-scale responses.
+Our adaption of the lifting scheme to spatio-temporal frameworks means that we can compress irregularly-shaped images into a single value across many different time-steps/samples. In modelling complex phenomena such as weather and climate, this allows one to extract a regional signal from which to model large-scale responses.
 
 For example, one can compress the image of India as shown below for a single time step
 
