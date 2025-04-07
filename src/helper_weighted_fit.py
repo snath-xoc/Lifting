@@ -8,6 +8,7 @@ from pygam.utils import check_X, check_X_y, check_y
 from scipy import sparse
 from scipy.optimize import minimize, rosen_der
 from scipy.signal import detrend
+from scipy.stats import logpdf
 
 EPS = np.finfo(np.float64).eps
 
@@ -247,10 +248,6 @@ def fit_weighted(self, X, y):
 
     # validate data-dependent parameters
     self._validate_data_dep_params(X)
-
-    # set up logging
-    if not hasattr(self, "logs_"):
-        self.logs_ = defaultdict(list)
 
     # begin capturing statistics
     self.statistics_ = {}
