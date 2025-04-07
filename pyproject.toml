@@ -8,7 +8,6 @@ name = "Lifting"
 version = "2025.1.0"
 description = "Wavelet based lifting scheme to compress irregular images over multi-dimensional data"
 readme = "README.md"
-
 maintainers = [{name = "Shruti Nath", email = "shruti@probabl.ai"}]
 dependencies = ["numpy>=1.15","regionmask", "pygam"]
 
