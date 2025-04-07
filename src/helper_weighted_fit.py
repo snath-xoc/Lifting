@@ -8,21 +8,21 @@ from pygam.utils import check_X, check_X_y, check_y
 from scipy import sparse
 from scipy.optimize import minimize, rosen_der
 from scipy.signal import detrend
-from scipy.stats import logpdf
+from scipy.stats import norm
 
 EPS = np.finfo(np.float64).eps
 
 
 def rolling_std(t, n):
 
-    l = t.shape[0]
-    m = np.zeros(l)
+    length = t.shape[0]
+    m = np.zeros(length)
 
     for i in range(n // 2):
         m[i] = np.std(t[i : i + n])
-        m[l - i - 1] = np.std(t[l - i - n - 1 : l - i - 1])
+        m[length - i - 1] = np.std(t[length - i - n - 1 : length - i - 1])
 
-    for i in range(n // 2, l - n // 2):
+    for i in range(n // 2, length - n // 2):
         m[i] = np.std(t[i - n // 2 : i + n // 2])
 
     return m
@@ -45,8 +45,6 @@ def comp_weights(X, y, weighted=False):
     if weighted:
 
         y = y.reshape(-1, 12)
-
-        nr_ts = X.shape[0]
 
         idx_sort = np.argsort(X)
         y_sorted = detrend(y)[idx_sort]
