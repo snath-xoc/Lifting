@@ -213,7 +213,7 @@ def loop_through_months(
     else:
 
         return single_ground(
-            Y_all[0], residuals_gp[0], i_mon, GMT, lifted[0], n_emu_mr, n_emu_lift
+            Y_all_list[0], residuals_gp[0], i_mon, GMT, lifted[0], n_emu_mr, n_emu_lift
         )
 
 
