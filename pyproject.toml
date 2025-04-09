@@ -5,12 +5,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Lifting"
-version = "2025.2.0"
+version = "2025.3.0"
 description = "Wavelet based lifting scheme to compress irregular images over multi-dimensional data"
 readme = "README.md"
 maintainers = [{name = "Shruti Nath", email = "shruti@probabl.ai"}]
-dependencies = ["numpy>=1.15","regionmask", "pygam"]
-
+dependencies = ["numpy>=1.15","numpy<2","regionmask", "pygam"]
 requires-python = ">=3.7"
 
 [project.urls]
