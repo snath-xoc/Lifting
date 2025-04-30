@@ -10,6 +10,10 @@ Lifting scheme
 ## Installation
 pip install -i https://test.pypi.org/simple/ Lifting
 
+For developer mode clone the repo and do
+
+pip install -e .
+
 See here: https://test.pypi.org/project/Lifting/
 
 ## Workflow
