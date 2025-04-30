@@ -301,10 +301,8 @@ def load_data_single_mod(
     )
     for run_name in run_names_list:
         run_name_ssp = run_name
-        data = (
-            xr.open_mfdataset(run_name_ssp)
-            .sel(time=slice("1850-01-01", "2101-01-01"))
-            .roll(lon=72)
+        data = xr.open_mfdataset(run_name_ssp).sel(
+            time=slice("1850-01-01", "2101-01-01")
         )
         data = data.assign_coords(
             lon=(((data.lon + 180) % 360) - 180)
