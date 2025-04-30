@@ -1,35 +1,25 @@
 ## initialisation for data loading module
 
+import importlib
 import sys
 
-sys.path.insert(1, "load_data/")
-
-
-import importlib
-
-import config
-import extract_cmip6
 import numpy as np
 
-importlib.reload(extract_cmip6)
-importlib.reload(config)
-
-from config import get_config
+from .config import get_config
+from .extract_cmip6 import get_land_mask, load_data_single_mod
 
 
 def get_cmip6_data(models, as_xarray=True, **kwargs):
 
     config = get_config()
 
-    lon_pc, lat_pc, wgt, wgt_l, idx_l = extract_cmip6.get_land_mask(
-        config["dir_meta_data"]
-    )
+    lon_pc, lat_pc, wgt, wgt_l, idx_l = get_land_mask(config["dir_meta_data"])
 
     data = {}
 
     for model in models:
 
-        data[model] = extract_cmip6.load_data_single_mod(
+        data[model] = load_data_single_mod(
             config["dir_cmip6_data"], model, idx_l, wgt, as_xarray=as_xarray, **kwargs
         )
 
@@ -51,7 +41,7 @@ def get_meta_data():
 
     config = get_config()
 
-    return extract_cmip6.get_land_mask(config["dir_meta_data"])
+    return get_land_mask(config["dir_meta_data"])
 
 
 def get_radius_around_gp(gp, idx_l, r=6):

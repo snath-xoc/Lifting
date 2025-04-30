@@ -173,7 +173,7 @@ def as_xr(
             time_beg = "2015-01"
             time_end = time_stop
 
-        if usr_time_res == "mon":
+        if usr_time_res == "Amon":
 
             times = np.arange(
                 time_beg, time_end, np.timedelta64(1, "M"), dtype="datetime64"
@@ -223,7 +223,7 @@ def load_data_single_mod(
     wgt,
     Tref_start="1850-01-01",
     Tref_end="1900-01-01",
-    usr_time_res="mon",
+    usr_time_res="Amon",
     var="tas",
     as_xarray=True,
     **kwargs
@@ -267,13 +267,7 @@ def load_data_single_mod(
     T_ref = np.zeros(idx_l.shape)
     run_nrs = {}
 
-    dir_var = dir_data + var + "/" + usr_time_res + "/" + spatial_res + "/"
-
-    if var == "hurs":
-
-        dir_var = (
-            dir_data + var + "/" + var + "/" + usr_time_res + "/" + spatial_res + "/"
-        )
+    dir_var = dir_data
 
     run_names_list = sorted(
         glob.glob(
@@ -305,7 +299,6 @@ def load_data_single_mod(
             + ".nc"
         )
     )
-
     for run_name in run_names_list:
         run_name_ssp = run_name
         data = (
@@ -390,7 +383,7 @@ def load_data_single_mod(
             try:
                 y[scen][run] = (y[scen][run] - T_ref)[:, idx_l]
                 Tan_wgt_globmean[scen][run] = Tan_wgt_globmean[scen][run] - T_ref_glob
-            except:
+            except ValueError:
                 print(scen, y[scen][run].shape, T_ref.shape)
 
     if as_xarray:
